@@ -45,11 +45,13 @@
                                 Join
                             </button>
                         </form>
-
-
+                        <p class="mt-4">
+                            Already joined ? &nbsp;
+                            <a href="/" class="text-sm text-blue-600 hover:underline">
+                                Login
+                            </a>
+                        </p>
                         <hr class="my-8" />
-
-
                         <div class="flex items-center justify-center gap-4">
                             <button class="flex items-center justify-center w-full px-4 py-2 text-sm text-white text-gray-700 border border-gray-300 rounded-lg hover:border-gray-500 focus:border-gray-500">
                                 <svg class="w-4 h-4 mr-2" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">

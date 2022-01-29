@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LoginController::class, 'create'])->middleware('guest')->name('login');
+Route::get('/', [LoginController::class, 'create'])->middleware('guest')->name('home');
 Route::post('/', [LoginController::class, 'store'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth');
 

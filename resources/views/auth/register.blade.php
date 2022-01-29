@@ -20,6 +20,14 @@
                         <form method="POST" action="/register">
                             @csrf
                             <div>
+                                <label class="block text-sm">Username</label>
+                                <input type="text" id="name" name="name" value="{{ old('name') }}" class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" placeholder="Enter your Username" required />
+                                @error('name')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
                                 <label class="block text-sm">Email</label>
                                 <input type="email" id="email" name="email" value="{{ old('email') }}" class="w-full px-4 py-2 text-sm border rounded-md focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-600" placeholder="Enter your E-mail" required />
                                 @error('email')

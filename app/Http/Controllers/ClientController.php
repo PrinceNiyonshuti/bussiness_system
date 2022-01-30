@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Company;
+use App\Models\User;
+use App\Notifications\NotifyAdmin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class ClientController extends Controller
 {
@@ -42,6 +46,17 @@ class ClientController extends Controller
         $client_data->address = $request['address'];
         $client_data->telephone = $request['telephone'];
         $client_data->save();
+
+        // finding all the admins
+        $admin = User::where('name', 'prince')->get();
+        $company = Company::select()->where('id', $client_data['company_id'])->first();
+
+        // defining notification data
+        $notificationData = [
+            'body' => 'New client called ' . $client_data['name'] . ' , have been created for ' . $company['name'] . ' company',
+            'footer' => 'Thank you for using and trusting in Business Management System'
+        ];
+        Notification::send($admin, new NotifyAdmin($notificationData));
 
         return redirect('/client')->with('success', 'Employee created successfully!');;
     }

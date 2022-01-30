@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Employee;
+use App\Models\User;
+use App\Notifications\NotifyAdmin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 
 class EmployeeController extends Controller
@@ -45,6 +49,18 @@ class EmployeeController extends Controller
         $employee->emp_start_date = $request['emp_start_date'];
         $employee['emp_number'] = Str::random(7);
         $employee->save();
+
+        // finding all the admins
+        $admin = User::where('name', 'prince')->get();
+        $company = Company::select()->where('id', $employee['company_id'])->first();
+
+        // defining notification data
+        $notificationData = [
+            'body' => 'New Employee called ' . $employee['name'] . ' , have been created for ' . $company['name'] . ' company',
+            'footer' => 'Thank you for using and trusting in Business Management System'
+        ];
+        Notification::send($admin, new NotifyAdmin($notificationData));
+
         return redirect('/employee')->with('success', 'Employee created successfully!');
     }
 

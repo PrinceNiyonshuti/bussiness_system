@@ -33,8 +33,11 @@ before starting to run the project , make sure you have mailtrap account in orde
     MAIL_PASSWORD=
     MAIL_ENCRYPTION=
     MAIL_FROM_ADDRESS=
+    FILESYSTEM_DRIVER=public
+    QUEUE_CONNECTION=database
 
 ### after run these script 
     npm install
     php artisan migrate
     php artisan serve
+    php artisan queue:work

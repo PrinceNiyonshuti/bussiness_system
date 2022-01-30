@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\User;
+use App\Notifications\NotifyAdmin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class CompanyController extends Controller
 {
@@ -43,6 +46,16 @@ class CompanyController extends Controller
         $newCompany->director = $request['director'];
         $newCompany->logo = $request->file('logo')->store('company_logos');
         $newCompany->save();
+
+        // finding the admin
+        $admin = User::where('name', 'prince')->get();
+
+        // defining notification data
+        $notificationData = [
+            'body' => 'New company called ' . $newCompany['name'] . ' , have been created',
+            'footer' => 'Thank you for using and trusting in Business Management System'
+        ];
+        Notification::send($admin, new NotifyAdmin($notificationData));
 
         return redirect('/company')->with('success', 'Company created successfully!');
     }

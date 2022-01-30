@@ -10,15 +10,16 @@ use Illuminate\Notifications\Notification;
 class NotifyAdmin extends Notification
 {
     use Queueable;
+    private $notificationData;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($notificationData)
     {
-        //
+        $this->notificationData = $notificationData;
     }
 
     /**
@@ -41,9 +42,9 @@ class NotifyAdmin extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Hi , ' . $notifiable->name)
+                    ->line($this->notificationData['body'])
+                    ->line($this->notificationData['footer']);
     }
 
     /**

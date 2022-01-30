@@ -21,10 +21,10 @@ The system that will administer or manage companies and their employees and clie
 ### Requirements
 
 before starting to run the project , make sure you have mailtrap account in order to check the verification link
-- Mailtrap [https://mailtrap.io/]
+- [Mailtrap](https://mailtrap.io/)
 - create your .env file 
 - create your database
-### .env Mailtrap corresponding data
+### .env Mailtrap corresponding data and for public storage access , also for queues to be processed
 
     MAIL_MAILER=
     MAIL_HOST=
@@ -39,5 +39,6 @@ before starting to run the project , make sure you have mailtrap account in orde
 ### after run these script 
     npm install
     php artisan migrate
+    php artisan storage:link
     php artisan serve
     php artisan queue:work

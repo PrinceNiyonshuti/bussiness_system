@@ -90,7 +90,6 @@
                 </div>
             </div>
         </div>
-        </form>
-    </div>
+        <x-alert-message />
     </div>
 </x-layout>

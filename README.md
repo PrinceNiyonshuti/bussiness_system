@@ -37,9 +37,11 @@ before starting to run the project , make sure you have mailtrap account in orde
     QUEUE_CONNECTION=database
 
 ### after run these script
-
-    npm install
-    php artisan migrate
-    php artisan storage:link
-    php artisan serve
-    php artisan queue:work
+    Run composer install
+    Run cp .env.example .env or copy .env.example .env
+    Run php artisan key:generate
+    Run php artisan migrate
+    Run php artisan db:seed
+    Run php artisan storage:link
+    Run php artisan queue:work
+    Run php artisan serve

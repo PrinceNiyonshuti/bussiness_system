@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +14,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        return view('admin.index', ['companies' => Company::latest()->paginate(4)]);
     }
-
 }

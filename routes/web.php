@@ -27,7 +27,10 @@ Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth');
 Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
+Route::middleware('auth')->prefix('/dashboard')->group(function () {
+    Route::get('', [AdminController::class, 'index']);
+    Route::get('/{company:name}', [AdminController::class, 'show']);
+});
 
 Route::middleware('auth')->prefix('/company')->group(function () {
     Route::get('', [CompanyController::class, 'index']);

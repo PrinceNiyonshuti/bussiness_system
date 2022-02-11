@@ -16,4 +16,11 @@ class AdminController extends Controller
     {
         return view('admin.index', ['companies' => Company::latest()->paginate(4)]);
     }
+
+    public function show(Company $company)
+    {
+        return view('admin.read', [
+            'company' => $company
+        ]);
+    }
 }

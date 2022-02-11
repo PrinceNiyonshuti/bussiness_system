@@ -18,6 +18,7 @@
                 <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent text-gray-600 hover:text-gray-900" href="/company">Company</a></li>
                 <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent text-gray-600 hover:text-gray-900" href="/employee">Employee</a></li>
                 <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent text-gray-600 hover:text-gray-900" href="/client">Clients</a></li>
+                <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent text-gray-600 hover:text-gray-900" href="/client">Profile</a></li>
                 <li>
                     <form id="logout-form" method="POST" action="/logout">
                         @csrf

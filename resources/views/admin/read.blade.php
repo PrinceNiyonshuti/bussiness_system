@@ -2,7 +2,7 @@
     <div class="bg-gray-200 min-h-screen pb-24">
         <x-menu />
         <div class="p-10">
-            <div class="rounded overflow-hidden shadow-lg">
+            <div class="rounded overflow-hidden shadow-lg bg-white">
                 <img class="object-cover h-60 w-full" src="/storage/{{ $company->logo }}" alt="{{ $company->name }}">
                 <div class="px-6 py-4">
                     <a href="/dashboard/{{ $company->name  }}">

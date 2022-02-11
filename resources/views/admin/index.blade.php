@@ -9,7 +9,7 @@
         </div>
         <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-5">
             @foreach ($companies as $company )
-            <div class="rounded overflow-hidden shadow-lg">
+            <div class="rounded overflow-hidden bg-white shadow-lg">
                 <img class="object-cover h-48 w-96" src="/storage/{{ $company->logo }}" alt="{{ $company->name }}">
                 <div class="px-6 py-4">
                     <a href="/dashboard/{{ $company->name  }}">

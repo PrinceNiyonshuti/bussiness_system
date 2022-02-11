@@ -14,11 +14,13 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index', ['companies' => Company::latest()->paginate(4)]);
+        return view('admin.index', ['companies' => Company::with('clients', 'employees')->latest()->paginate(4)]);
+        // return view('admin.index', ['companies' => Company::latest()->paginate(4)]);
     }
 
     public function show(Company $company)
     {
+
         return view('admin.read', [
             'company' => $company
         ]);

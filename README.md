@@ -45,3 +45,7 @@ before starting to run the project , make sure you have mailtrap account in orde
     php artisan storage:link
     php artisan queue:work
     php artisan serve
+
+## Feedback and issues
+
+Any issue and feedback from the app don't hesitate to make an issue
